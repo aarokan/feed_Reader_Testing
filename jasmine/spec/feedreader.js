@@ -60,8 +60,9 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('The menu is hidden by default', function() {
+            // Select the body element then check the class name
             const body = document.querySelector('body');
-            expect(body.className).toBe('menu-hidden');
+            expect(body.className).toContain('menu-hidden');
         })
 
          /* TODO: Write a test that ensures the menu changes
