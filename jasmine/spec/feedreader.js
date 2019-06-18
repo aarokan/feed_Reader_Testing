@@ -109,9 +109,11 @@ $(function() {
           });
         });
 
-        it('Feed container should contain at least a single .entry element', (done) => {
-            const feed = document.querySelector('.feed');
-            expect(feed.firstElementChild.firstElementChild.className).toBe('entry');
+        it('Feed container should contain at least a single .entry element', done => {
+            // const feed = document.querySelector('.feed');
+            // expect(feed.firstElementChild.firstElementChild.className).toBe('entry');
+            const feedEntries = document.querySelectorAll('.feed .entry');
+            expect(feedEntries.length).toBeGreaterThan(0);
             /* We call (done) after our test to signal to our framework that
              * this test rely upon the async execution that inside beforeEach
              */
