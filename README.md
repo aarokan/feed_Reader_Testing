@@ -1,12 +1,12 @@
 # Project Overview
 
-This is a web-based application that reads RSS feeds. We used Jasmine to write a number of tests against a pre-existing application.
+This is a web-based application that reads RSS feeds. We used Jasmine to write a number of tests against the pre-existing application.
 
 ## How to test the app
 
 Simply download or clone the project with
 * `git clone https://github.com/aarokan/feed_Reader_Testing.git`
-* then open the index.html file and check the tests result at the bottom of the page.
+* Then open the index.html file and check the tests result at the bottom of the page.
 
 ## The testing suites and its specs
 
