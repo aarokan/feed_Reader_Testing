@@ -53,7 +53,7 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "The menu" */
-    describe('The menu', function() {
+    describe('The Menu', function() {
         var body;
 
         // Before each specs testing Select the body element
@@ -122,9 +122,31 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-
+    describe('New Feed Selection', function() {
+        let firstFeed,
+            secondFeed;
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        beforeEach(function(done) {
+            // load the first feed
+            loadFeed(0, function() {
+                firstFeed = document.querySelector('.feed').innerHTML;
+            });
+
+            // load the scecond feed
+            loadFeed(1, function() {
+                secondFeed = document.querySelector('.feed').innerHTML;
+                done();
+            });
+        });
+
+        it('Content changes when new feed is loaded', done => {
+            // Check if the firstFeed is diffrent from the secondFeed
+            expect(firstFeed != secondFeed).toBe(true);
+            done();
+        });
+
+    });
 }());
