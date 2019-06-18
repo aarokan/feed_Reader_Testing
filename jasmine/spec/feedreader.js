@@ -48,7 +48,7 @@ $(function() {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
             }
-        })
+        });
     });
 
 
@@ -68,7 +68,7 @@ $(function() {
         it('The menu is hidden by default', function() {
             // Check body class name if it contains menu-hidden
             expect(body.className).toContain('menu-hidden');
-        })
+        });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -88,17 +88,36 @@ $(function() {
 
             menuIconLink.dispatchEvent(event);
             expect(body.className).toContain('menu-hidden');
-        })
+        });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
-
+    describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done) {
+          loadFeed(0, function() {
+              /* We call (done) to signal to our framework that
+               * our asynchronous function is done doing what we need it to do
+               * and we can continue testing
+               */
+              done();
+          });
+        });
+
+        it('Feed container should contain at least a single .entry element', (done) => {
+            const feed = document.querySelector('.feed');
+            expect(feed.firstElementChild.firstElementChild.className).toBe('entry');
+            /* We call (done) after our test to signal to our framework that
+             * this test rely upon the async execution that inside beforeEach
+             */
+            done();
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
