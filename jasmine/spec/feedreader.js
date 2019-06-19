@@ -149,7 +149,7 @@ $(function() {
 
         it('Content changes when new feed is loaded', done => {
             // Check if the firstFeed is diffrent from the secondFeed
-            expect(firstFeed != secondFeed).toBe(true);
+            expect(firstFeed).not.toEqual(secondFeed);
             done();
         });
 
