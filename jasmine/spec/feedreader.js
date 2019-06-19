@@ -133,13 +133,18 @@ $(function() {
             // load the first feed
             loadFeed(0, function() {
                 firstFeed = document.querySelector('.feed').innerHTML;
+
+                /* load the scecond feed
+                 * We nested loadFeed(1) inside of loadFeed(0) and therefore
+                 * loadFeed(1) will wait for loadFeed(0) and we
+                 * ensure that loadFeed(0) receives data from server
+                 */
+                loadFeed(1, function() {
+                    secondFeed = document.querySelector('.feed').innerHTML;
+                    done();
+                });
             });
 
-            // load the scecond feed
-            loadFeed(1, function() {
-                secondFeed = document.querySelector('.feed').innerHTML;
-                done();
-            });
         });
 
         it('Content changes when new feed is loaded', done => {
